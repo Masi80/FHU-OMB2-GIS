@@ -1,0 +1,220 @@
+<!doctype html>
+<html class="no-js" lang="">
+
+<head>
+	<meta charset="utf-8">
+	<title>Haushalts-App / Home</title>
+	<meta name="description" content="">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<meta property="og:title" content="Home">
+	<meta property="og:type" content="">
+	<meta property="og:url" content="">
+	<meta property="og:image" content="">
+
+    <link rel="manifest" href="site.webmanifest">
+	<link rel="apple-touch-icon" href="icon.png">
+	<!-- Place favicon.ico in the root directory -->
+
+	<link rel="stylesheet" href="../css/normalize.css">
+	<link rel="stylesheet" href="../css/main.css">
+
+  <meta name="theme-color" content="#fafafa">
+</head>
+
+<body onload="reiterManInitialisierung()">
+
+  <!-- Add your site or application content here -->
+	<script src="../js/vendor/modernizr-3.11.2.min.js"></script>
+	<script src="../js/plugins.js"></script>
+	<script src="../js/main.js"></script>
+
+	<main>
+		<div id="h1container">
+	  		<h1>Hallo, Marcel</h1>
+		</div>
+		<div id="inhaltscontainer">
+			<div id="reiter-leiste">
+				<p id="einkaufsliste-reiterbutton" class="reiter-eintrag" onClick="reiterManagement('einkaufsliste')"><a>Einkaufsliste</a></p>
+				<p id="speissen-reiterbutton" class="reiter-eintrag active" onClick="reiterManagement('speissen')"><a>Speißen</a></p>
+				<p id="wochenplan-reiterbutton" class="reiter-eintrag" onClick="reiterManagement('wochenplan')"><a>Wochenplan</a></p>
+			</div>
+			<div id="einkaufsliste" class="reiter">
+				<h2>Einkaufsliste</h2>
+				<div class="reiter-inhalt">
+					<div class="scrollcontainer">
+						<div class="inhalts-container">
+							<!--<div class="einkaufsliste-kategorie kategorie">
+								<h3>Essen</h3>
+								<div class="einkaufsliste-kategorie-inhalt kategorie-inhalt">
+									<div class="einkaufsliste-kategorie-inhalt-eintrag" data-einkaufseintrag-id="1">
+										<p>Bananen</p>
+										<p>Rewe</p>
+										<a><p>x</p></a>
+									</div>
+									<form class="inhalt-eintragen">
+										<input type="text" id="produkt-1" placeholder="Produkt...">
+										<input type="text" id="laden-1" placeholder="Laden...">
+										<input type="submit" value="&#43">
+									</form>
+								</div>
+							</div>-->
+						</div>
+						<div class="liste-hinzufuegen kategorie">
+							<div class="einkaufsliste-kategorie-inhalt kategorie-inhalt">
+								<div class="kategorie-hinzufuegen-ueberschrift">
+									<h3>Liste hinzufügen</h3>
+								</div>
+								<form class="inhalt-eintragen">
+									<input type="text" id="neuer-einkaufslistenname" placeholder="Listenname...">
+									<input type="submit" value="Eintragen" id="neuer-einkaufslistenname-eintragen">
+								</form>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div id="speissen" class="reiter">
+				<h2>Speißen</h2>
+				<div class="reiter-inhalt">
+					<div class="scrollcontainer">
+						<div class="speissen-kategorie kategorie">
+							<h3>Spaghetti</h3>
+							<div class="dragbutton-container">
+								<div class="dragbutton"><p>Bananen</p></div>
+								<div class="dragbutton"><p>Milch</p></div>
+							</div>
+						</div>
+						<div class="speissen-kategorie kategorie">
+							<h3>Suppe</h3>
+							<div class="dragbutton-container">
+								<div class="dragbutton"><p>Suppenwürfel</p></div>
+								<div class="dragbutton"><p>Wasser</p></div>
+							</div>
+						</div>
+						<div class="speissen-kategorie kategorie">
+							<h3>Spaghetti</h3>
+							<div class="dragbutton-container">
+								<div class="dragbutton"><p>Bananen</p></div>
+								<div class="dragbutton"><p>Milch</p></div>
+							</div>
+						</div>
+						<div class="speissen-kategorie kategorie">
+							<h3>Suppe</h3>
+							<div class="dragbutton-container">
+								<div class="dragbutton"><p>Suppenwürfel</p></div>
+								<div class="dragbutton"><p>Wasser</p></div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="kategorie-hinzufuegen-anzeigen-button"><p>+</p></div>
+				<div class="kategorie-hinzufuegen reiter-inhalt">
+					<div class="kategorie-hinzufuegen-slider" ontouchstart="handlerAusklappenStart(event, 'speissen')" ontouchmove="handlerAktPos(event)" ontouchend="handlerDefPos(event, 'speissen')">
+						<div class="kategorie-hinzufuegen-slider-handler"></div>
+					</div>
+					<div class="kategorie-hinzufuegen-ueberschrift">
+						<h3>Zutaten</h3>
+						<p class="kategorie-hinzufuegen-ausblenden">X</p>
+					</div>
+					<div class="dragbutton-container">
+						<div class="dragbutton"><p>Bananen</p></div>
+						<div class="dragbutton"><p>Milch</p></div>
+						<div class="dragbutton"><p>Suppenwürfel</p></div>
+						<div class="dragbutton"><p>Wasser</p></div>
+						<div class="dragbutton"><p>Apfel</p></div>
+					</div>
+					<div class="inhalt-eintragen-trennlinie"></div>
+					<form class="inhalt-eintragen">
+						<p>Zutat...</p>
+						<p>Eintragen</p>
+					</form>
+				</div>
+			</div>
+			<div id="wochenplan" class="reiter">
+				<h2>Wochenplan</h2>
+				<div class="reiter-inhalt">
+					<div class="scrollcontainer">
+						<div class="wochentag kategorie">
+							<h3>Montag</h3>
+							<div class="dragbutton-container">
+								<div class="dragbutton"><p>Abwasch</p></div>
+								<div class="dragbutton"><p>Wäsche</p></div>
+							</div>
+						</div>
+						<div class="wochentag kategorie">
+							<h3>Dienstag</h3>
+							<div class="dragbutton-container">
+								<div class="dragbutton"><p>Abwasch</p></div>
+								<div class="dragbutton"><p>Wäsche</p></div>
+							</div>
+						</div>
+						<div class="wochentag kategorie">
+							<h3>Mittwoch</h3>
+							<div class="dragbutton-container">
+								<div class="dragbutton"><p>Abwasch</p></div>
+								<div class="dragbutton"><p>Wäsche</p></div>
+							</div>
+						</div>
+						<div class="wochentag kategorie">
+							<h3>Donnerstag</h3>
+							<div class="dragbutton-container">
+								<div class="dragbutton"><p>Abwasch</p></div>
+								<div class="dragbutton"><p>Wäsche</p></div>
+							</div>
+						</div>
+						<div class="wochentag kategorie">
+							<h3>Freitag</h3>
+							<div class="dragbutton-container">
+								<div class="dragbutton"><p>Abwasch</p></div>
+								<div class="dragbutton"><p>Wäsche</p></div>
+							</div>
+						</div>
+						<div class="wochentag kategorie">
+							<h3>Samstag</h3>
+							<div class="dragbutton-container">
+								<div class="dragbutton"><p>Abwasch</p></div>
+								<div class="dragbutton"><p>Wäsche</p></div>
+							</div>
+						</div>
+						<div class="wochentag kategorie">
+							<h3>Sonntag</h3>
+							<div class="dragbutton-container">
+								<div class="dragbutton"><p>Abwasch</p></div>
+								<div class="dragbutton"><p>Wäsche</p></div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="kategorie-hinzufuegen-anzeigen-button">+</div>
+				<div class="kategorie-hinzufuegen reiter-inhalt">
+					<div class="kategorie-hinzufuegen-slider" ontouchstart="handlerAusklappenStart(event, 'wochenplan')" ontouchmove="handlerAktPos(event)" ontouchend="handlerDefPos(event, 'wochenplan')">
+						<div class="kategorie-hinzufuegen-slider-handler"></div>
+					</div>
+					<div class="kategorie-hinzufuegen-ueberschrift">
+						<h3>Aktivität</h3>
+						<p class="kategorie-hinzufuegen-ausblenden">X</p>
+					</div>
+					<form class="inhalt-eintragen">
+							<select id="wochentag-dropdown" name="wochentag-dropdown">
+								<option value="montag">Montag</option>
+								<option value="dienstag">Dienstag</option>
+								<option value="mittwoch">Mittwoch</option>
+								<option value="donnerstag">Donnerstag</option>
+								<option value="freitag">Freitag</option>
+								<option value="samstag">Samstag</option>
+								<option value="sonntag">Sonntag</option>
+							</select>
+						<input type="text" id="aktivitaet" name="aktivitaet" placeholder="Aktivität...">
+						<p>&#43;</p>
+					</form>
+				</div>
+			</div>
+		</div>
+	</main>
+	
+	<script src="../js/localStorageJSON-speichern.js"></script>
+	
+</body>
+
+</html>
