@@ -373,12 +373,12 @@ h1::after{
     	padding-left: 10vw;
 		padding-right: 10vw;
 	}
-	main{
-		-webkit-mask-image: url(https://mgass18.multimedia.graphische.net/projekte/fhu_gis_omb2/img/opacity-maske.png);
-		mask-image: url(https://mgass18.multimedia.graphische.net/projekte/fhu_gis_omb2/img/opacity-maske.png);
+	/* main{
+		-webkit-mask-image: url(../img/opacity-maske.png);
+		mask-image: url(../img/opacity-maske.png);
 		-webkit-mask-size: 100%;
 		mask-size: 100%;
-	}
+	} */
 	h1{
 		margin-left: 10vw;
 	}

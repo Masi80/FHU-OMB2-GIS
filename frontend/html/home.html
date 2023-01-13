@@ -12,8 +12,8 @@
 	<meta property="og:url" content="">
 	<meta property="og:image" content="">
 
-    <link rel="manifest" href="site.webmanifest">
-	<link rel="apple-touch-icon" href="icon.png">
+    <!-- <link rel="manifest" href="site.webmanifest"> -->
+	<!-- <link rel="apple-touch-icon" href="icon.png"> -->
 	<!-- Place favicon.ico in the root directory -->
 
 	<link rel="stylesheet" href="../css/normalize.css">
@@ -27,7 +27,7 @@
   <!-- Add your site or application content here -->
 	<script src="../js/vendor/modernizr-3.11.2.min.js"></script>
 	<script src="../js/plugins.js"></script>
-	<script src="../js/main.js"></script>
+	<script src="../js/main.js" defer></script>
 
 	<main>
 		<div id="h1container">
@@ -67,7 +67,7 @@
 								</div>
 								<form class="inhalt-eintragen">
 									<input type="text" id="neuer-einkaufslistenname" placeholder="Listenname...">
-									<input type="submit" value="Eintragen" id="neuer-einkaufslistenname-eintragen">
+									<input type="button" value="Eintragen" id="neuer-einkaufslistenname-eintragen">
 								</form>
 							</div>
 						</div>
@@ -213,7 +213,7 @@
 		</div>
 	</main>
 	
-	<script src="../js/localStorageJSON-speichern.js"></script>
+	<!-- <script src="/frontend/js/localStorageJSON-speichern.js"></script> -->
 	
 </body>
 

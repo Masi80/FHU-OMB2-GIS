@@ -151,3 +151,17 @@ function handlerDefPos(event, reiterName){
 		} 
 	}
 }
+
+
+// Einkaufslisten-Funktionen
+
+// Setze Save-Button in Variable
+let speichernButton = document.getElementById("neuer-einkaufslistenname-eintragen");
+// Füge Save-Funktion dem Button hinzu
+speichernButton.addEventListener("click", save);
+async function save() {
+	const newItem = {
+		listenName: document.getElementById("neuer-einkaufslistenname").value
+	};
+	await addItem(newItem);
+}
