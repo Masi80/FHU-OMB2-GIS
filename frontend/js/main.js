@@ -67,12 +67,11 @@ function desktopElementeHinzufuegenMan(){
 	var reiter = document.getElementsByClassName("reiter");
 	Array.prototype.forEach.call(reiter, function(reiter) {
 		aktReiter = reiter;
-		console.log(aktReiter);
 		try{
 			reiter.querySelectorAll('.kategorie-hinzufuegen-anzeigen-button')[0].addEventListener("click", desktopElementeHinzufuegenAnzeigen);
 			reiter.querySelectorAll('.kategorie-hinzufuegen-ausblenden')[0].addEventListener("click", desktopElementeHinzufuegenAusblenden);
 		} catch (error) {
-			console.error(error);
+			//console.error(error);
 		}
 	});	
 }
@@ -150,18 +149,4 @@ function handlerDefPos(event, reiterName){
 			wochenplanSliderCheck = true;
 		} 
 	}
-}
-
-
-// Einkaufslisten-Funktionen
-
-// Setze Save-Button in Variable
-let speichernButton = document.getElementById("neuer-einkaufslistenname-eintragen");
-// Füge Save-Funktion dem Button hinzu
-speichernButton.addEventListener("click", save);
-async function save() {
-	const newItem = {
-		listenName: document.getElementById("neuer-einkaufslistenname").value
-	};
-	await addItem(newItem);
 }
